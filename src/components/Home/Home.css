@@ -1,0 +1,13 @@
+.header {
+  font-family: "Ubuntu";
+  color: green;
+  font-size: 65px;
+}
+
+.secondHeader {
+  color: grey;
+}
+
+.heroImage {
+  width: 400px;
+}
