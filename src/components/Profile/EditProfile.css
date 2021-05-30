@@ -10,3 +10,14 @@
   top: 10%;
   z-index: 10;
 }
+
+.userImage {
+  height: 50%;
+  width: 50%;
+  object-fit: cover;
+}
+
+input {
+  display: none;
+  /* visibility: hidden; */
+}

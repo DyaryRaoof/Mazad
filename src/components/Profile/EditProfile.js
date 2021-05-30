@@ -1,21 +1,28 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
-import { useFilePicker } from 'use-file-picker';
-import personImage from '../../images/person-placeholder.jpg';
 import './EditProfile.css';
 
-const EditProfile = (props) => {
-  user = props.user;
-  openFileSelector = useFilePicker({
-    accept: '.txt',
-  });
-  const [openFileSelector, { filesContent, loading }] = useFilePicker({
-    accept: '.jpg, .jpeg, .png, .webm',
-    multiple: false,
-  });
+class EditProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.imageRef = React.createRef();
+    this.state = { image: null };
+  }
 
-  const onSubmit = () => {};
-  const validate = (values) => {
+  user = this.props.user;
+
+  onInputChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.setState({ image: e.target.result });
+    };
+    reader.readAsDataURL(file);
+    console.log(file.name);
+  };
+
+  onSubmit = () => {};
+  validate = (values) => {
     const errors = {};
     if (!values.jobTitle) {
       errors.jobTitle = 'You must enter a job title';
@@ -59,66 +66,74 @@ const EditProfile = (props) => {
     );
   };
 
-  return (
-    <div style={{ backgroundColor: 'white', height: '100vh' }}>
-      <Form
-        onSubmit={onSubmit}
-        validate={validate}
-        initialValues={{
-          jobTitle: user.jobTitleSelf,
-          jobDescription: user.jobDescriptionSelf,
-          minimumMonthlyWage: user.minimumMonthlyWage,
-        }}
-        render={(handleSubmit) => (
-          <form handleSubmit={handleSubmit}>
-            <div className="row">
-              <div className="col-md-4">
-                <div className="imagePlusEditButton">
-                  <img
-                    className="userImage"
-                    src={personImage}
-                    className="img-fluid"
-                    alt="user"
-                    style={{ width: '300px', marginTop: '20px' }}
-                  />
+  render() {
+    return (
+      <div style={{ backgroundColor: 'white', height: '100vh' }}>
+        <Form
+          onSubmit={this.onSubmit}
+          validate={this.validate}
+          initialValues={{
+            jobTitle: this.user.jobTitleSelf,
+            jobDescription: this.user.jobDescriptionSelf,
+            minimumMonthlyWage: this.user.minimumMonthlyWage,
+          }}
+          render={({ handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <div className="row">
+                <div className="col-md-4">
+                  <div className="imagePlusEditButton">
+                    <img
+                      src={
+                        this.state.image ? this.state.image : this.props.image
+                      }
+                      className="img-fluid userImage"
+                      alt="user"
+                      style={{ width: '300px', marginTop: '20px' }}
+                    />
+                    <button
+                      className="btn btn-success imageEditButton"
+                      type="button"
+                      onClick={() => {
+                        this.imageRef.current.click();
+                      }}
+                    >
+                      Edit
+                    </button>
 
-                  <button
-                    className="btn btn-success imageEditButton"
-                    type="button"
-                    onClick={() => {
-                      openFile();
-                    }}
-                  >
-                    Edit
-                  </button>
+                    <input
+                      type="file"
+                      ref={this.imageRef}
+                      onChange={this.onInputChange}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>Minimum Monthly Wage</label>
+                    {this.renderInput(
+                      'Minimum Monthly Wage',
+                      'minimumMonthlyWage',
+                      false
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <label>Minimum Monthly Wage</label>
-                  {renderInput(
-                    'Minimum Monthly Wage',
-                    'minimumMonthlyWage',
-                    false
-                  )}
+
+                <div className="col-md-8 mt-2">
+                  <div className="d-flex justify-content-between">
+                    <h2 style={{ color: 'green' }}>
+                      {`${this.user.name} ${this.user.at}`}
+                    </h2>
+                  </div>
+                  <label>Job Title</label>
+                  {this.renderInput('Job Title', 'jobTitle', false)}
+                  <label>Job Description</label>
+                  {this.renderInput('Job Description', 'jobDescription', true)}
                 </div>
               </div>
-
-              <div className="col-md-8 mt-2">
-                <div className="d-flex justify-content-between">
-                  <h2 style={{ color: 'green' }}>
-                    {`${user.name} ${this.user.at}`}
-                  </h2>
-                </div>
-                <label>Job Title</label>
-                {enderInput('Job Title', 'jobTitle', false)}
-                <label>Job Description</label>
-                {enderInput('Job Description', 'jobDescription', true)}
-              </div>
-            </div>
-          </form>
-        )}
-      />
-    </div>
-  );
-};
+            </form>
+          )}
+        />
+      </div>
+    );
+  }
+}
 
 export default EditProfile;

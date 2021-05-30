@@ -2,8 +2,6 @@ import React from 'react';
 import { Field, Form } from 'react-final-form';
 import JobCategoriesDropDown from '../JobCateogriesDropdown';
 
-import JobCateogriesDropdown from '../JobCateogriesDropdown';
-
 class PostJob extends React.Component {
   state = { selectedFile: null };
 
@@ -101,7 +99,7 @@ class PostJob extends React.Component {
                     className="custom-file-input"
                     id="customFile"
                   />
-                  <label className="custom-file-label" for="customFile">
+                  <label className="custom-file-label" htmlFor="customFile">
                     {this.state.selectedFile
                       ? this.state.selectedFile.name
                       : 'Upload A File'}

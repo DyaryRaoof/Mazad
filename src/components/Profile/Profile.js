@@ -121,7 +121,7 @@ class Profile extends React.Component {
                 </div>
               </div>
             ) : (
-              <EditProfile user={this.user} />
+              <EditProfile user={this.user} image={personImage} />
             )}
           </div>
         </div>

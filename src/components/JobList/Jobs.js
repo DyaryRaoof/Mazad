@@ -59,27 +59,27 @@ class Jobs extends React.Component {
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/#">
               Previous
             </a>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/#">
               1
             </a>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/#">
               2
             </a>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/#">
               3
             </a>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/#">
               Next
             </a>
           </li>
@@ -90,7 +90,7 @@ class Jobs extends React.Component {
 
   renderJobs() {
     return this.jobs.map((job, index) => {
-      if (index > 6) {
+      if (index < 6) {
         return (
           <div key={job.id}>
             <label style={{ color: 'green', fontWeight: 'bold' }}>
