@@ -1,28 +1,28 @@
-import React from "react";
-import { Field, Form } from "react-final-form";
-import ImagePicker from "./ImagePicker";
-import JobCategoriesDropDown from "../JobCateogriesDropdown";
+import React from 'react';
+import { Field, Form } from 'react-final-form';
+import ImagePicker from './ImagePicker';
+import JobCategoriesDropDown from '../JobCateogriesDropdown';
 
 class PostJob extends React.Component {
-  state = { selectedFile: null, selectedCurrecy: "IQD" };
+  state = { selectedFile: null, selectedCurrecy: 'IQD' };
 
   jobCategories = [
-    { name: "Category No X.", id: 1 },
-    { name: "Category No X.", id: 2 },
-    { name: "Category No X.", id: 3 },
-    { name: "Category No X.", id: 4 },
-    { name: "Category No X.", id: 5 },
-    { name: "Category No X.", id: 6 },
+    { name: 'Category No X.', id: 1 },
+    { name: 'Category No X.', id: 2 },
+    { name: 'Category No X.', id: 3 },
+    { name: 'Category No X.', id: 4 },
+    { name: 'Category No X.', id: 5 },
+    { name: 'Category No X.', id: 6 },
   ];
 
   onSubmit = () => {};
   validate = (values) => {
     const errors = {};
     if (!values.email) {
-      errors.email = "You must enter your email";
+      errors.email = 'You must enter your email';
     }
     if (!values.password) {
-      errors.password = "You must enter a password";
+      errors.password = 'You must enter a password';
     }
 
     return errors;
@@ -36,14 +36,14 @@ class PostJob extends React.Component {
           placeholder={placeholder}
           render={({ input, meta }) => {
             return (
-              <div style={{ textAlign: "center" }}>
+              <div style={{ textAlign: 'center' }}>
                 {meta.touched && meta.error ? (
-                  <span style={{ color: "red" }}>{meta.error}</span>
+                  <span style={{ color: 'red' }}>{meta.error}</span>
                 ) : null}
                 {isTextArea ? (
                   <div className="form-group">
                     <textarea
-                      class="form-control rounded-0"
+                      className="form-control rounded-0"
                       rows="10"
                       placeholder={placeholder}
                     ></textarea>
@@ -51,22 +51,22 @@ class PostJob extends React.Component {
                 ) : (
                   <div className="input-group mb-4">
                     {isPriceInput ? (
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">
                           {this.state.selectedCurrecy}
                         </span>
                       </div>
                     ) : null}
                     <input
-                      type={isPriceInput ? "number" : "text"}
+                      type={isPriceInput ? 'number' : 'text'}
                       placeholder={placeholder}
                       className="form-control"
                       {...input}
                     ></input>
                     {isPriceInput ? (
-                      <div class="input-group-append">
+                      <div className="input-group-append">
                         <button
-                          class="btn btn-outline-secondary dropdown-toggle"
+                          className="btn btn-outline-secondary dropdown-toggle"
                           type="button"
                           data-toggle="dropdown"
                           aria-haspopup="true"
@@ -74,19 +74,19 @@ class PostJob extends React.Component {
                         >
                           Currency
                         </button>
-                        <div class="dropdown-menu">
+                        <div className="dropdown-menu">
                           <label
-                            class="dropdown-item"
+                            className="dropdown-item"
                             onClick={() =>
-                              this.setState({ selectedCurrecy: "IQD" })
+                              this.setState({ selectedCurrecy: 'IQD' })
                             }
                           >
                             IQD
                           </label>
                           <label
-                            class="dropdown-item"
+                            className="dropdown-item"
                             onClick={() =>
-                              this.setState({ selectedCurrecy: "$" })
+                              this.setState({ selectedCurrecy: '$' })
                             }
                           >
                             USD
@@ -112,39 +112,39 @@ class PostJob extends React.Component {
             onSubmit={this.onSubmit}
             validate={this.validate}
             render={({ handleSubmit }) => (
-              <form onSubmit={handleSubmit} style={{ margin: "auto" }}>
-                <div style={{ textAlign: "center" }}>
-                  <h2 style={{ color: "green" }}>
+              <form onSubmit={handleSubmit} style={{ margin: 'auto' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <h2 style={{ color: 'green' }}>
                     Tell us about the item to auction
                   </h2>
                 </div>
 
-                <div style={{ textAlign: "center", marginTop: "20px" }}>
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
                   <p>
                     Auction your item to get bids on it by different users ,
                     where you can select the heighest bid and help you make your
                     best profit.
                   </p>
                 </div>
-                {this.renderInput("Item Title", "title", false)}
+                {this.renderInput('Item Title', 'title', false)}
                 {this.renderInput(
                   `Item price in ${
-                    this.state.selectedCurrecy === "$" ? "USD" : "IQD"
+                    this.state.selectedCurrecy === '$' ? 'USD' : 'IQD'
                   }`,
-                  "price",
+                  'price',
                   false,
                   true
                 )}
-                {this.renderInput("Item Dscirption", "descirption", true)}
+                {this.renderInput('Item Dscirption', 'descirption', true)}
                 <ImagePicker />
-                <div className="mt-5" style={{ textAlign: "center" }}>
+                <div className="mt-5" style={{ textAlign: 'center' }}>
                   <JobCategoriesDropDown
                     dropdownStrings={this.jobCategories}
                     dropdownHint="Job Categories"
                     buttonLength="100%"
                   />
                 </div>
-                <div style={{ textAlign: "center", marginTop: "40px" }}>
+                <div style={{ textAlign: 'center', marginTop: '40px' }}>
                   <button className="btn btn-outline-success">Post Job</button>
                 </div>
               </form>
