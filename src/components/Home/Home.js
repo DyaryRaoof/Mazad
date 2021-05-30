@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 // import Header from "./Header";
-import HeroPlusTopFreelancers from "./HeroPlusTopFreelancers";
-import CategoriesList from "./CategoriesList";
-import LoggedInHeader from "./LoggedInHeader";
+import HeroPlusTopFreelancers from './HeroPlusTopFreelancers';
+import CategoriesList from './CategoriesList';
+import LoggedInHeader from './LoggedInHeader';
+import Chat from '../Chat';
 
 class Home extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Home extends React.Component {
         <LoggedInHeader />
         <HeroPlusTopFreelancers />,
         <CategoriesList />
+        <Chat />
       </div>
     );
   }
