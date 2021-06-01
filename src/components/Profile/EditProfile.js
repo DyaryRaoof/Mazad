@@ -101,6 +101,7 @@ class EditProfile extends React.Component {
                     </button>
 
                     <input
+                      className="imageSelector"
                       type="file"
                       ref={this.imageRef}
                       onChange={this.onInputChange}

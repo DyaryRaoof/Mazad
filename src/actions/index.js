@@ -6,6 +6,7 @@ import {
   OPEN_MESSAGE_POPOVER,
   CLOSE_MESSAGE_POPOVER,
   TOGGLE_CHAT_BOX,
+  TOGGLE_MESSAGE_MODAL,
 } from './types';
 
 export const openLoginModal = () => {
@@ -47,5 +48,12 @@ export const closeMessagePopover = () => {
 export const toggleChatBox = () => {
   return {
     type: TOGGLE_CHAT_BOX,
+  };
+};
+
+export const toggleMessageModal = (payload) => {
+  return {
+    type: TOGGLE_MESSAGE_MODAL,
+    payload: payload,
   };
 };

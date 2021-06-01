@@ -17,7 +17,7 @@
   object-fit: cover;
 }
 
-input {
+.imageSelector {
   display: none;
   /* visibility: hidden; */
 }

@@ -1,16 +1,16 @@
-import React from "react";
-import JobCategoriesDropDown from "../JobCateogriesDropdown";
+import React from 'react';
+import JobCategoriesDropDown from '../JobCateogriesDropdown';
 
 class Sidebar extends React.Component {
   state = { newSkill: null };
 
   projectCities = [
-    { name: "City No X.", id: 1 },
-    { name: "City No X.", id: 2 },
-    { name: "City No X.", id: 3 },
-    { name: "City No X.", id: 4 },
-    { name: "City No X.", id: 5 },
-    { name: "City No X.", id: 6 },
+    { name: 'City No X.', id: 1 },
+    { name: 'City No X.', id: 2 },
+    { name: 'City No X.', id: 3 },
+    { name: 'City No X.', id: 4 },
+    { name: 'City No X.', id: 5 },
+    { name: 'City No X.', id: 6 },
   ];
 
   skills = [];
@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
           <div className="form-check">
             <input
               className="form-check-input"
-              type="checkbox"
+              type=""
               value=""
               id="flexCheckDefault"
             />
@@ -63,17 +63,17 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div className="card m-2 p-3" style={{ textAlign: "start" }}>
+      <div className="card m-2 p-3" style={{ textAlign: 'start' }}>
         <h3>Filters</h3>
         <div>
           <label>Price</label>
-          {this.renderInput("from ...", "from")}
-          {this.renderInput("To ...", "to")}
+          {this.renderInput('from ...', 'from')}
+          {this.renderInput('To ...', 'to')}
         </div>
         <div>
           <label>Skills</label>
           <form onSubmit={this.onSkillSubmit}>
-            {this.renderInput("Enter Skills", "skills")}
+            {this.renderInput('Enter Skills', 'skills')}
           </form>
           <div className="p-2">
             {this.skills.length > 0 ? this.renderSkills() : null}
@@ -84,7 +84,7 @@ class Sidebar extends React.Component {
           <JobCategoriesDropDown
             dropdownStrings={this.projectCities}
             dropdownHint="SelectCity"
-            buttonLength={"100%"}
+            buttonLength={'100%'}
           />
         </div>
       </div>
