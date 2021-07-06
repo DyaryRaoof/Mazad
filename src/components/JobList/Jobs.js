@@ -54,6 +54,24 @@ class Jobs extends React.Component {
     });
   }
 
+  renderPaginationItems() {
+      return  <li class="page-item">
+      <a class="page-link" href="#">
+        1
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">
+        2
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">
+        3
+      </a>
+    </li>
+  }
+
   renderPagination() {
     return (
       <nav aria-label="Page navigation example">
@@ -63,21 +81,7 @@ class Jobs extends React.Component {
               Previous
             </a>
           </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              1
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              2
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
-              3
-            </a>
-          </li>
+         
           <li class="page-item">
             <a class="page-link" href="#">
               Next
@@ -113,7 +117,7 @@ class Jobs extends React.Component {
       }
     });
   }
-
+//
   render() {
     return (
       <div className="card m-2 p-2">
