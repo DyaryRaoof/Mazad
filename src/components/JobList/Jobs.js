@@ -117,7 +117,7 @@ class Jobs extends React.Component {
       }
     });
   }
-//
+
   render() {
     return (
       <div className="card m-2 p-2">
