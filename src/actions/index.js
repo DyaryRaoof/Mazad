@@ -5,7 +5,9 @@ import {
   CLOSE_PROFILE_POPOVER,
   OPEN_MESSAGE_POPOVER,
   CLOSE_MESSAGE_POPOVER,
-} from "./types";
+  TOGGLE_CHAT_BOX,
+  TOGGLE_MESSAGE_MODAL,
+} from './types';
 
 export const openLoginModal = () => {
   return {
@@ -40,5 +42,18 @@ export const openMessagePopover = () => {
 export const closeMessagePopover = () => {
   return {
     type: CLOSE_MESSAGE_POPOVER,
+  };
+};
+
+export const toggleChatBox = () => {
+  return {
+    type: TOGGLE_CHAT_BOX,
+  };
+};
+
+export const toggleMessageModal = (payload) => {
+  return {
+    type: TOGGLE_MESSAGE_MODAL,
+    payload: payload,
   };
 };

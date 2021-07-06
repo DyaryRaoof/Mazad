@@ -1,13 +1,15 @@
-import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
-import Home from "./Home/Home";
-import history from "./history";
-import SignUp from "./SingUp/SignUp";
-import Login from "./Login/Login";
-import PostJob from "./PostJob/PostJob";
-import Profile from "./Profile/Profile";
-import AuctionItem from "./AuctionItem/AuctionItem";
-import JobList from "./JobList/JobList";
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import Home from './Home/Home';
+import history from './history';
+import SignUp from './SingUp/SignUp';
+import Login from './Login/Login';
+import PostJob from './PostJob/PostJob';
+import Profile from './Profile/Profile';
+import AuctionItem from './AuctionItem/AuctionItem';
+import JobList from './JobList/JobList';
+import Freelancers from './Freelancers';
+import MessageModal from './MessageModal';
 
 class App extends React.Component {
   render() {
@@ -21,7 +23,9 @@ class App extends React.Component {
           <Route path="/profile" exact component={Profile}></Route>
           <Route path="/auction-item" exact component={AuctionItem}></Route>
           <Route path="/job-list" exact component={JobList}></Route>
+          <Route path="/freelancers" exact component={Freelancers}></Route>
         </Switch>
+        <MessageModal />
       </Router>
     );
   }

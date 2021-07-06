@@ -1,0 +1,34 @@
+.chatBox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  width: 400px;
+  height: 300px;
+  border: 1px solid grey;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.singleChat {
+  color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 4px;
+  width: 70%;
+}
+
+.userName {
+  color: green;
+  text-decoration: underline;
+  padding: 4px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.userImage img {
+  width: 50px;
+  padding: 4px;
+  margin: 4px;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const generateCategoryListNames = () => {
   const list = [];
@@ -12,14 +12,14 @@ const generateCategoryListNames = () => {
 function makeid(length) {
   var result = [];
   var characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
   for (var i = 0; i < length; i++) {
     result.push(
       characters.charAt(Math.floor(Math.random() * charactersLength))
     );
   }
-  return result.join("");
+  return result.join('');
 }
 
 class CategoriesList extends React.Component {
@@ -32,8 +32,8 @@ class CategoriesList extends React.Component {
   render() {
     const categoryNames = generateCategoryListNames();
     return (
-      <div className="container" style={{ marginTop: "100px" }}>
-        <h3 style={{ color: "green" }}>Job Categories</h3>
+      <div className="container" style={{ marginTop: '100px' }}>
+        <h3 style={{ color: 'green' }}>Job Categories</h3>
         <div className="row">
           <div className="col-md-4">
             {this.renderCateogries(
