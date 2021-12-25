@@ -42,7 +42,6 @@ class Body extends React.Component {
     mazadapi
       .post('/users', form)
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
           this.setState({ isSuccessfullyRegistered: true });
         }
@@ -155,7 +154,7 @@ class Body extends React.Component {
                     marginBlock: '20px',
                   }}
                 >
-                  <button className="btn btn-outline-success">
+                  <button className="btn btn-outline-success" type="submit">
                     Create My Account
                   </button>
                 </div>

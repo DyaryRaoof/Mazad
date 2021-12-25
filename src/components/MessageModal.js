@@ -8,9 +8,9 @@ import { toggleMessageModal } from '../actions';
 const MessageModal = (props) => {
   const { className } = props;
 
-  const [setModal] = useState(false);
+  const [modal, setModal] = useState(false);
 
-  const toggle = () => setModal(props.toggleMessageModal(null));
+  const toggle = () => setModal(props.toggleMessageModal(modal));
 
   return reactDOM.createPortal(
     <div>
