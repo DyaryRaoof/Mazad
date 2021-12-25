@@ -1,0 +1,9 @@
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.category-item {
+  cursor: pointer;
+  font-weight: bold;
+}
