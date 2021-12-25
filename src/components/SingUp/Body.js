@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import ImagePicker from '../AuctionItem/ImagePicker';
 import mazadapi from '../../api/mazadapi';
-import { ViewList } from 'react-bootstrap-icons';
 
 class Body extends React.Component {
   state = { isSuccessfullyRegistered: false };

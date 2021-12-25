@@ -3,12 +3,12 @@ import reactDOM from 'react-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 
-import { toggleMessageModal, toggleChatBox } from '../actions';
+import { toggleMessageModal } from '../actions';
 
 const MessageModal = (props) => {
-  const { buttonLabel, className } = props;
+  const { className } = props;
 
-  const [modal, setModal] = useState(false);
+  const [setModal] = useState(false);
 
   const toggle = () => setModal(props.toggleMessageModal(null));
 
