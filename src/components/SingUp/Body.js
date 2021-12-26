@@ -52,14 +52,19 @@ class Body extends React.Component {
   };
 
   validate = (values) => {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const errors = {};
-    if (!values.fullName) {
-      errors.fullName = 'You must enter your full name';
+    if (!values.fullName || values.length < 3) {
+      errors.fullName =
+        'You must enter your full name and name should be 3 letters or longer';
     }
     if (!values.email) {
       errors.email = 'You must enter your working email';
     }
-    if (!values.password) {
+    if (values.email && !values.email.match(regexEmail)) {
+      errors.email = 'You must enter a valid email address';
+    }
+    if (!values.password || values.password.length < 6) {
       errors.password = 'You must enter a password of 6 letters or more';
     }
     if (values.confirmPassword !== values.password) {
@@ -85,7 +90,11 @@ class Body extends React.Component {
                   <span style={{ color: 'red' }}>{meta.error}</span>
                 ) : null}
                 <div className="input-group mb-4">
-                  <input className="form-control" {...input}></input>
+                  <input
+                    className="form-control"
+                    placeholder={placeholder}
+                    {...input}
+                  ></input>
                 </div>
               </div>
             );

@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Header extends React.Component {
-  render() {
-    return (
+const Header = ({ setShowModal }) => {
+  return (
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a
           className="navbar-brand"
-          style={{ color: "green", fontWeight: "bold" }}
+          style={{ color: 'green', fontWeight: 'bold' }}
           href="/#"
         >
           Mazad
@@ -35,9 +35,13 @@ class Header extends React.Component {
           <form className="form-inline">
             <input
               className="form-control "
-              type="search"
               placeholder="Search"
               aria-label="Search"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  setShowModal(true);
+                }
+              }}
             />
             <Link to="/login" className="btn btn-outline-success m-2">
               Login
@@ -49,8 +53,7 @@ class Header extends React.Component {
           </form>
         </div>
       </nav>
-    );
-  }
-}
-
+    </div>
+  );
+};
 export default Header;
